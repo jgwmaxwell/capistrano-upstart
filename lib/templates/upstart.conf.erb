@@ -4,6 +4,16 @@
 ## stop on
 <%= upstart_stop_on.map { |key, val| "stop on #{key} #{val}" }.join("\n") %>
 
+## uid
+<% if upstart_uid != 'root' %>
+uid <%= upstart_uid %>
+<% end %>
+
+## gid
+<% if upstart_gid != 'root %>
+gid <%= upstart_gid %>
+<% end %>
+
 ## env
 <%= upstart_env.map { |key, val| "env #{key}=#{val.to_s.dump}" }.join("\n") %>
 
