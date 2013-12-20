@@ -41,6 +41,8 @@ module Capistrano
 
           _cset(:upstart_start_on, { :runlevel => "[2345]" })
           _cset(:upstart_stop_on, { :runlevel => "[016]" })
+          _cset(:upstart_uid, 'root')
+          _cset(:upstart_gid, 'root')
           _cset(:upstart_env, {})
           _cset(:upstart_export) {
             upstart_env.keys
